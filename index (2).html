@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trolley Dilemma Deneyi</title>
   <style>
-    /* ========================================================
-       GENEL STİL
-    ======================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -37,7 +34,6 @@
 
     h1 { font-size: 1.8rem; margin-bottom: 12px; color: #1a1a2e; }
     h2 { font-size: 1.3rem; margin-bottom: 20px; color: #16213e; }
-    h3 { font-size: 1.1rem; margin-bottom: 14px; color: #0f3460; }
     p  { line-height: 1.7; margin-bottom: 12px; color: #444; }
 
     .bilgi-kutusu {
@@ -49,9 +45,7 @@
       font-size: 0.95rem;
     }
 
-    /* ========================================================
-       BUTONLAR
-    ======================================================== */
+    /* BUTONLAR */
     .btn {
       display: inline-block;
       padding: 12px 28px;
@@ -62,25 +56,19 @@
       transition: background 0.2s, transform 0.1s;
     }
     .btn:active { transform: scale(0.97); }
-    .btn-primary  { background: #4f46e5; color: #fff; }
-    .btn-primary:hover  { background: #4338ca; }
-    .btn-success  { background: #059669; color: #fff; }
-    .btn-success:hover  { background: #047857; }
-    .btn-gray     { background: #e5e7eb; color: #333; }
-    .btn-gray:hover     { background: #d1d5db; }
+    .btn-primary { background: #4f46e5; color: #fff; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-gray { background: #e5e7eb; color: #333; }
+    .btn-gray:hover { background: #d1d5db; }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
     .btn-satir { margin-top: 28px; display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
 
-    /* ========================================================
-       FORM ELEMANLARI (Anket)
-    ======================================================== */
+    /* FORM */
     .form-grup { margin-bottom: 22px; }
     .form-grup label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
     .form-grup input[type="text"],
     .form-grup input[type="number"],
-    .form-grup select,
-    .form-grup textarea {
+    .form-grup select {
       width: 100%;
       padding: 10px 14px;
       border: 1.5px solid #d1d5db;
@@ -90,10 +78,9 @@
       transition: border 0.2s;
     }
     .form-grup input:focus,
-    .form-grup select:focus,
-    .form-grup textarea:focus { border-color: #4f46e5; }
+    .form-grup select:focus { border-color: #4f46e5; }
 
-    /* Likert 1-6 soru stili */
+    /* LİKERT */
     .likert-grup { margin-bottom: 26px; }
     .likert-grup .soru-metni { font-size: 0.95rem; margin-bottom: 10px; font-weight: 500; }
     .likert-secenekler {
@@ -133,100 +120,7 @@
       color: #4f46e5;
     }
 
-    /* ========================================================
-       GÖRSEL BÖLÜMÜ (Aktör / Bystander / SS)
-    ======================================================== */
-    .gorsel-sahne {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .gorsel-sahne img {
-      max-width: 100%;
-      max-height: 420px;
-      border-radius: 8px;
-      border: 2px solid #e5e7eb;
-      object-fit: contain;
-    }
-    .gorsel-cift {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .gorsel-cift .gorsel-kutu {
-      flex: 1;
-      text-align: center;
-    }
-    .gorsel-cift img {
-      max-width: 100%;
-      max-height: 320px;
-      border-radius: 8px;
-      border: 2px solid #e5e7eb;
-      object-fit: contain;
-    }
-    .gorsel-cift .gorsel-etiket {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 6px;
-    }
-
-    /* D/K Tuş Göstergesi */
-    .tus-alani {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin: 24px 0;
-    }
-    .tus-kutu {
-      border: 3px solid #d1d5db;
-      border-radius: 10px;
-      padding: 18px 36px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      min-width: 140px;
-    }
-    .tus-kutu:hover { border-color: #4f46e5; background: #eef2ff; }
-    .tus-kutu.secildi-d { border-color: #059669; background: #d1fae5; }
-    .tus-kutu.secildi-k { border-color: #dc2626; background: #fee2e2; }
-    .tus-kutu .tus-harf {
-      font-size: 2rem;
-      font-weight: 800;
-      display: block;
-    }
-    .tus-kutu .tus-aciklama {
-      font-size: 0.85rem;
-      margin-top: 4px;
-      color: #555;
-    }
-
-    /* İlerleme */
-    .ilerleme-cubuğu-kap {
-      background: #e5e7eb;
-      border-radius: 999px;
-      height: 8px;
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
-    .ilerleme-cubuğu-ic {
-      background: #4f46e5;
-      height: 100%;
-      border-radius: 999px;
-      transition: width 0.4s ease;
-    }
-    .ilerleme-metin {
-      font-size: 0.82rem;
-      color: #777;
-      text-align: right;
-      margin-bottom: 8px;
-    }
-
-    /* Yorum alanı */
-    .yorum-alani { margin-top: 18px; }
-    .yorum-alani label { display: block; font-size: 0.9rem; color: #555; margin-bottom: 6px; }
-    .yorum-alani textarea { min-height: 80px; resize: vertical; }
-
-    /* Bölüm başlık bandı */
+    /* BÖLÜM BANT */
     .bolum-bant {
       background: #1a1a2e;
       color: #fff;
@@ -245,10 +139,10 @@
       font-weight: 800; font-size: 0.95rem; flex-shrink: 0;
     }
 
-    /* Hata mesajı */
+    /* HATA */
     .hata { color: #dc2626; font-size: 0.85rem; margin-top: 6px; display: none; }
 
-    /* Bekleme / gönderim ekranı */
+    /* SPİNNER */
     .spinner {
       width: 48px; height: 48px;
       border: 5px solid #e5e7eb;
@@ -259,85 +153,168 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Mobil uyum */
+    /* MOBİL */
     @media (max-width: 600px) {
       .ekran { padding: 24px 18px; }
-      .gorsel-cift { flex-direction: column; }
-      .tus-alani { flex-direction: column; align-items: center; }
+    }
+
+    /* GGES ÖZEL STİL */
+    .gges-madde {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .gges-madde:last-child { border-bottom: none; }
+    .gges-sifat {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1a1a2e;
+      min-width: 110px;
+      flex-shrink: 0;
+    }
+    .gges-secenekler {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+    .gges-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 8px 14px;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #444;
+      transition: all 0.15s;
+      background: #fff;
+      user-select: none;
+    }
+    .gges-radio-label input[type="radio"] { display: none; }
+    .gges-radio-label:hover {
+      border-color: #4f46e5;
+      color: #4f46e5;
+      background: #eef2ff;
+    }
+    .gges-radio-label:has(input:checked) {
+      border-color: #4f46e5;
+      background: #4f46e5;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .gges-madde { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-<!-- ============================================================
-     EKRAN 0: KARŞILAMA & BİLGİLENDİRİLMİŞ ONAM
-============================================================ -->
+<!-- EKRAN 0: KARŞILAMA -->
 <section id="ekran-hosgeldin" class="ekran aktif">
   <h1>Trolley Problemi Deneyi</h1>
   <div class="bilgi-kutusu">
     Bu çalışma, ahlaki karar verme süreçlerini incelemek amacıyla tasarlanmış bir psikoloji deneyidir.
   </div>
-  <p>
-    Çalışmaya katılım <strong>gönüllülük esasına</strong> dayanmaktadır. Verilen yanıtlar tamamen
-    anonim tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır.
-  </p>
-  <p>
-    Deneyi istediğiniz herhangi bir aşamada sonlandırabilirsiniz. Tahmini tamamlanma süresi
-    <strong>15-20 dakikadır</strong>.
-  </p>
+  <p>Çalışmaya katılım <strong>gönüllülük esasına</strong> dayanmaktadır. Verilen yanıtlar tamamen anonim tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır.</p>
+  <p>Deneyi istediğiniz herhangi bir aşamada sonlandırabilirsiniz. Tahmini tamamlanma süresi <strong>15-20 dakikadır</strong>.</p>
   <p>Devam ederek aydınlatılmış onam formunu kabul etmiş sayılırsınız.</p>
-  <!-- 
-    TODO: Gerekirse buraya resmi onam formu metni veya ayrı bir onay kutusu ekleyin.
-    Örnek: <label><input type="checkbox" id="onam-cb"> Okudum, kabul ediyorum.</label>
-  -->
   <div class="btn-satir">
     <button class="btn btn-primary" onclick="ekranGec('ekran-demografik')">Başla →</button>
   </div>
 </section>
 
 
-<!-- ============================================================
-     EKRAN 1: DEMOGRAFİK SORULAR
-============================================================ -->
+<!-- EKRAN 1: DEMOGRAFİK -->
 <section id="ekran-demografik" class="ekran">
   <div class="bolum-bant">
     <div class="bolum-no">1</div>
     <div>Demografik Bilgiler</div>
   </div>
 
-  <!-- -------------------------------------------------------
-       DEMOGRAFİK FORM - İstediğiniz soruları buraya ekleyin
-  ------------------------------------------------------- -->
   <div class="form-grup">
-    <label>Yaşınız</label>
+    <label>1. Bir takma isim giriniz</label>
+    <input type="text" id="dem-takma-isim" placeholder="Takma isminizi yazın" />
+  </div>
+
+  <div class="form-grup">
+    <label>2. Yaşınız</label>
     <input type="number" id="dem-yas" min="18" max="99" placeholder="Örn: 24" />
   </div>
 
   <div class="form-grup">
-    <label>Cinsiyetiniz</label>
+    <label>3. Cinsiyetiniz</label>
     <select id="dem-cinsiyet">
       <option value="">-- Seçiniz --</option>
-      <option>Kadın</option>
       <option>Erkek</option>
-      <option>Non-binary / Genderqueer</option>
+      <option>Kadın</option>
       <option>Belirtmek istemiyorum</option>
     </select>
   </div>
 
   <div class="form-grup">
-    <label>Eğitim Düzeyi</label>
-    <select id="dem-egitim">
+    <label>4. Gelir Durumunuz</label>
+    <select id="dem-gelir">
       <option value="">-- Seçiniz --</option>
-      <option>İlköğretim</option>
-      <option>Lise</option>
-      <option>Ön Lisans</option>
-      <option>Lisans</option>
-      <option>Yüksek Lisans</option>
-      <option>Doktora</option>
+      <option>0 - 17.000 ₺</option>
+      <option>17.000 - 35.000 ₺</option>
+      <option>35.000 - 57.000 ₺</option>
+      <option>57.000 ₺ ve üstü</option>
     </select>
   </div>
 
-  <!-- TODO: Buraya ek demografik sorular ekleyebilirsiniz (uyruk, meslek vb.) -->
+  <div class="form-grup">
+    <label>5. Dini İnancınız</label>
+    <select id="dem-din">
+      <option value="">-- Seçiniz --</option>
+      <option>Hristiyan</option>
+      <option>Budist</option>
+      <option>Hindu</option>
+      <option>Müslüman</option>
+      <option>Yahudi</option>
+      <option>Ateist</option>
+      <option>Deist</option>
+      <option>Agnostik</option>
+      <option>Diğer</option>
+    </select>
+  </div>
+
+  <div class="form-grup">
+    <label>6. Kendinizi hangi düzeyde dindar olarak görüyorsunuz?</label>
+    <select id="dem-dindarlik">
+      <option value="">-- Seçiniz --</option>
+      <option>Dindar değilim</option>
+      <option>Biraz dindarım</option>
+      <option>Orta derecede dindarım</option>
+      <option>Çok dindarım</option>
+      <option>Bilmiyorum</option>
+    </select>
+  </div>
+
+  <div class="form-grup">
+    <label>7. Siyasi açıdan Türkiye'de yıllardır sol, sağ ve merkez diye bir siyasi gelenek vardır. Siz kendinizi aşağıdaki ölçekte hangi konumda görüyorsunuz?</label>
+    <div class="likert-grup" style="margin-top:10px;">
+      <div class="likert-secenekler">
+        <span class="uc-label">Aşırı Sol</span>
+        <div class="radio-grup" id="dem-siyasi-konum-rg"></div>
+        <span class="uc-label">Aşırı Sağ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-grup">
+    <label>8. Kendinizi siyasi görüşünüze hangi düzeyde bağlı olarak görüyorsunuz?</label>
+    <select id="dem-siyasi-baglilik">
+      <option value="">-- Seçiniz --</option>
+      <option>Hiç bağlı değilim</option>
+      <option>Az bağlıyım</option>
+      <option>Orta düzeyde bağlıyım</option>
+      <option>Oldukça bağlıyım</option>
+      <option>Tamamen bağlıyım</option>
+    </select>
+  </div>
 
   <div id="dem-hata" class="hata">Lütfen tüm alanları doldurun.</div>
   <div class="btn-satir">
@@ -347,289 +324,92 @@
 </section>
 
 
-<!-- ============================================================
-     EKRAN 2: KİMLİK KAYNAŞIM ÖLÇEĞİ
-     Kaynak: Swann et al. (2012) - Identity Fusion Scale
-     TODO: Maddeleri kendi ölçeğinize göre güncelleyin
-============================================================ -->
+<!-- EKRAN 2a: KİMLİK KAYNAŞIM AÇIKLAMA -->
+<section id="ekran-kimlik-aciklama" class="ekran">
+  <div class="bolum-bant">
+    <div class="bolum-no">2</div>
+    <div>Kimlik Kaynaşım Ölçeği</div>
+  </div>
+  <p>Birazdan göreceğiniz soruların doğru cevabı yoktur. Lütfen ekranda göreceğiniz soruları kendi bakış açınıza göre mümkün olduğunca objektif bir biçimde cevaplayınız.</p>
+  <p style="margin-top: 16px; font-weight: 600; font-size: 1.05rem; color: #1a1a2e;">
+    Bağlı bulunduğunuz grubu Türklük üzerinden tanımladığınızda;
+  </p>
+  <div class="btn-satir">
+    <button class="btn btn-gray" onclick="ekranGec('ekran-demografik')">← Geri</button>
+    <button class="btn btn-primary" onclick="ekranGec('ekran-kimlik')">Devam →</button>
+  </div>
+</section>
+
+
+<!-- EKRAN 2b: KİMLİK KAYNAŞIM SORULARI -->
 <section id="ekran-kimlik" class="ekran">
   <div class="bolum-bant">
     <div class="bolum-no">2</div>
     <div>Kimlik Kaynaşım Ölçeği</div>
   </div>
   <p class="bilgi-kutusu">
-    Aşağıdaki ifadelerin sizin için ne kadar doğru olduğunu 1 (Kesinlikle Katılmıyorum) ile
-    6 (Kesinlikle Katılıyorum) arasında değerlendirin.
+    Aşağıdaki ifadelerin sizin için ne kadar doğru olduğunu 1 (Kesinlikle Katılmıyorum) ile 7 (Kesinlikle Katılıyorum) arasında değerlendirin.
   </p>
-
-  <div id="kimlik-sorular">
-    <!-- Sorular JS tarafından dinamik üretilir (aşağıdaki KİMLİK_SORULARI dizisinden) -->
-  </div>
-
+  <div id="kimlik-sorular"></div>
   <div id="kimlik-hata" class="hata">Lütfen tüm soruları yanıtlayın.</div>
   <div class="btn-satir">
-    <button class="btn btn-gray" onclick="ekranGec('ekran-demografik')">← Geri</button>
+    <button class="btn btn-gray" onclick="ekranGec('ekran-kimlik-aciklama')">← Geri</button>
     <button class="btn btn-primary" onclick="kimlikDogrula()">Devam →</button>
   </div>
 </section>
 
 
-<!-- ============================================================
-     EKRAN 3: GGES ÖLÇEĞİ
-     TODO: GGES maddelerini buraya/aşağıdaki diziye ekleyin
-============================================================ -->
-<section id="ekran-gges" class="ekran">
+<!-- EKRAN 3a: GGES AÇIKLAMA -->
+<section id="ekran-gges-aciklama" class="ekran">
   <div class="bolum-bant">
     <div class="bolum-no">3</div>
     <div>GGES Ölçeği</div>
   </div>
-  <p class="bilgi-kutusu">
-    Aşağıdaki ifadelerin sizin için ne kadar doğru olduğunu 1 (Kesinlikle Katılmıyorum) ile
-    6 (Kesinlikle Katılıyorum) arasında değerlendirin.
-  </p>
-
-  <div id="gges-sorular">
-    <!-- Sorular JS tarafından dinamik üretilir (aşağıdaki GGES_SORULARI dizisinden) -->
-  </div>
-
-  <div id="gges-hata" class="hata">Lütfen tüm soruları yanıtlayın.</div>
+  <p>Aşağıda Türk ve Türk olmayan insanlarla ilgili birtakım sıfatlar yer almaktadır. Türk ve Türk olmayan grupları ayrı ayrı düşünerek, her sıfatın her grubu ne kadar iyi tanımladığını belirtiniz.</p>
+  <p style="margin-top: 12px;">Soruların doğru veya yanlış cevabı yoktur, bizim için önemli olan sizin ne düşündüğünüzdür.</p>
+  <p style="margin-top: 12px;">Lütfen <strong>1 (Hiç tanımlamıyor)</strong> ile <strong>5 (Tamamen tanımlıyor)</strong> arasında derecelendirilmiş sorular üzerinde her bir sıfatın <strong>Türk</strong> ve <strong>Türk olmayan</strong> grubu sizce ne kadar iyi tanımladığını işaretleyiniz.</p>
   <div class="btn-satir">
     <button class="btn btn-gray" onclick="ekranGec('ekran-kimlik')">← Geri</button>
-    <button class="btn btn-primary" onclick="ggesDogrula()">Deneye Başla →</button>
+    <button class="btn btn-primary" onclick="ekranGec('ekran-gges-turk')">Devam →</button>
   </div>
 </section>
 
 
-<!-- ============================================================
-     EKRAN 4: AKTÖR SENARYOLARI
-     6 senaryo, rastgele sıra, D/K tuşu
-============================================================ -->
-<section id="ekran-aktor" class="ekran">
+<!-- EKRAN 3b: GGES – TÜRK GRUPLAR -->
+<section id="ekran-gges-turk" class="ekran">
   <div class="bolum-bant">
-    <div class="bolum-no">4</div>
-    <div>Aktör Senaryoları</div>
+    <div class="bolum-no">3</div>
+    <div>GGES Ölçeği – Türk Gruplar</div>
   </div>
-
-  <div class="bilgi-kutusu">
-    Aşağıda bir tren senaryosu göreceksiniz.<br>
-    <strong>D</strong> → Kolu çekerim &nbsp;|&nbsp; <strong>K</strong> → Kolu çekmem<br>
-    Klavyenizdeki D veya K tuşuna basarak yanıt verin.
-  </div>
-
-  <div class="ilerleme-metin" id="aktor-ilerleme-metin"></div>
-  <div class="ilerleme-cubuğu-kap">
-    <div class="ilerleme-cubuğu-ic" id="aktor-ilerleme-ic" style="width:0%"></div>
-  </div>
-
-  <!-- Senaryo açıklama metni (isteğe bağlı) -->
-  <div id="aktor-aciklama" style="margin-bottom:16px; font-size:0.95rem; color:#555;"></div>
-
-  <!-- Görsel çifti: öncesi ve sonrası -->
-  <div class="gorsel-cift" id="aktor-gorsel-cift">
-    <div class="gorsel-kutu">
-      <img id="aktor-gorsel-oncesi" src="" alt="Öncesi" />
-      <div class="gorsel-etiket">Önceki Durum</div>
-    </div>
-    <div class="gorsel-kutu">
-      <img id="aktor-gorsel-sonrasi" src="" alt="Sonrası" />
-      <div class="gorsel-etiket">Sonraki Durum</div>
-    </div>
-  </div>
-  <!--
-    TODO: Yalnızca tek görsel göstermek istiyorsanız gorsel-cift yerine
-    tek .gorsel-sahne + <img id="aktor-gorsel-tek"> kullanabilirsiniz.
-    Her senaryo objesi için gorselOncesi ve gorselSonrasi alanlarını doldurun.
-  -->
-
-  <div class="tus-alani">
-    <div class="tus-kutu" id="tus-d" onclick="aktorYanit('D')">
-      <span class="tus-harf">D</span>
-      <span class="tus-aciklama">Çekerim</span>
-    </div>
-    <div class="tus-kutu" id="tus-k" onclick="aktorYanit('K')">
-      <span class="tus-harf">K</span>
-      <span class="tus-aciklama">Çekmem</span>
-    </div>
-  </div>
-
-  <!-- Yorum alanı - Aktör senaryoları için -->
-  <div class="yorum-alani">
-    <label>Kararınızı açıklamak ister misiniz? (İsteğe bağlı)</label>
-    <textarea id="aktor-yorum" placeholder="Yorumunuzu buraya yazın..."></textarea>
-  </div>
-
+  <p class="bilgi-kutusu">1 = Hiç tanımlamıyor &nbsp;·&nbsp; 5 = Tamamen tanımlıyor</p>
+  <p style="margin-bottom: 20px; font-weight: 600; font-size: 1.05rem; color: #1a1a2e;">Türk gruplar için;</p>
+  <div id="gges-turk-sorular"></div>
+  <div id="gges-turk-hata" class="hata">Lütfen tüm soruları yanıtlayın.</div>
   <div class="btn-satir">
-    <button class="btn btn-primary" id="aktor-ileri-btn" onclick="aktorIleri()" disabled>Sonraki →</button>
+    <button class="btn btn-gray" onclick="ekranGec('ekran-gges-aciklama')">← Geri</button>
+    <button class="btn btn-primary" onclick="ggesTogrula()">Devam →</button>
   </div>
 </section>
 
 
-<!-- ============================================================
-     EKRAN 5: BYSTANDER
-     12 görsel, her biri için 1-6 Likert
-============================================================ -->
-<section id="ekran-bystander" class="ekran">
+<!-- EKRAN 3c: GGES – TÜRK OLMAYAN GRUPLAR -->
+<section id="ekran-gges-to" class="ekran">
   <div class="bolum-bant">
-    <div class="bolum-no">5</div>
-    <div>Bystander (Seyirci) Senaryoları</div>
+    <div class="bolum-no">3</div>
+    <div>GGES Ölçeği – Türk Olmayan Gruplar</div>
   </div>
-
-  <div class="bilgi-kutusu">
-    Aşağıdaki videoyu/görseli izleyip değerlendirmenizi yapın.
-  </div>
-
-  <div class="ilerleme-metin" id="bys-ilerleme-metin"></div>
-  <div class="ilerleme-cubuğu-kap">
-    <div class="ilerleme-cubuğu-ic" id="bys-ilerleme-ic" style="width:0%"></div>
-  </div>
-
-  <div class="gorsel-sahne">
-    <img id="bys-gorsel" src="" alt="Bystander Görseli" />
-  </div>
-  <!--
-    TODO: Video göstermek istiyorsanız <img> yerine:
-    <video id="bys-video" controls style="max-width:100%; border-radius:8px;"></video>
-    kullanıp JS'de src atamasını değiştirin.
-  -->
-
-  <div class="likert-grup" style="margin-top:10px;">
-    <div class="soru-metni">İzlediğiniz videoyu ne kadar ahlaki buldunuz?</div>
-    <div class="likert-secenekler">
-      <span class="uc-label">Hiç ahlaki değil</span>
-      <div class="radio-grup" id="bys-likert">
-        <!-- 1-6 butonları JS tarafından oluşturulur -->
-      </div>
-      <span class="uc-label">Tamamen ahlaki</span>
-    </div>
-  </div>
-
-  <!-- Yorum alanı -->
-  <div class="yorum-alani">
-    <label>Yorumunuz (İsteğe bağlı)</label>
-    <textarea id="bys-yorum" placeholder="Yorumunuzu buraya yazın..."></textarea>
-  </div>
-
-  <div id="bys-hata" class="hata">Lütfen bir puan seçin.</div>
+  <p class="bilgi-kutusu">1 = Hiç tanımlamıyor &nbsp;·&nbsp; 5 = Tamamen tanımlıyor</p>
+  <p style="margin-bottom: 20px; font-weight: 600; font-size: 1.05rem; color: #1a1a2e;">Türk olmayan gruplar için;</p>
+  <div id="gges-to-sorular"></div>
+  <div id="gges-to-hata" class="hata">Lütfen tüm soruları yanıtlayın.</div>
   <div class="btn-satir">
-    <button class="btn btn-primary" onclick="bystanderIleri()">Sonraki →</button>
+    <button class="btn btn-gray" onclick="ekranGec('ekran-gges-turk')">← Geri</button>
+    <button class="btn btn-primary" onclick="ggesToOgrula()">Tamamla →</button>
   </div>
 </section>
 
 
-<!-- ============================================================
-     EKRAN 6: KENDİNİ FEDA (SS) - D/K BÖLÜMÜ
-     TODO: Kaç görselin D/K ile, kaçının Likert ile yanıtlanacağını
-           aşağıdaki SS_DK ve SS_LIKERT dizilerinde belirleyin.
-============================================================ -->
-<section id="ekran-ss-dk" class="ekran">
-  <div class="bolum-bant">
-    <div class="bolum-no">6a</div>
-    <div>Kendini Feda – Karar</div>
-  </div>
-
-  <div class="bilgi-kutusu">
-    <strong>D</strong> → Kendimi feda ederim &nbsp;|&nbsp; <strong>K</strong> → Kendimi feda etmem<br>
-    <!--
-      TODO: D ve K tuşlarının bu bölümdeki anlamını yukarıda düzenleyin.
-    -->
-  </div>
-
-  <div class="ilerleme-metin" id="ssdk-ilerleme-metin"></div>
-  <div class="ilerleme-cubuğu-kap">
-    <div class="ilerleme-cubuğu-ic" id="ssdk-ilerleme-ic" style="width:0%"></div>
-  </div>
-
-  <div id="ssdk-aciklama" style="margin-bottom:16px; font-size:0.95rem; color:#555;"></div>
-
-  <div class="gorsel-cift" id="ssdk-gorsel-cift">
-    <div class="gorsel-kutu">
-      <img id="ssdk-gorsel-oncesi" src="" alt="Öncesi" />
-      <div class="gorsel-etiket">Önceki Durum</div>
-    </div>
-    <div class="gorsel-kutu">
-      <img id="ssdk-gorsel-sonrasi" src="" alt="Sonrası" />
-      <div class="gorsel-etiket">Sonraki Durum</div>
-    </div>
-  </div>
-
-  <div class="tus-alani">
-    <div class="tus-kutu" id="ssdk-tus-d" onclick="ssDkYanit('D')">
-      <span class="tus-harf">D</span>
-      <span class="tus-aciklama">Feda ederim</span>
-      <!--
-        TODO: Bu etiketi değiştirin (örn. "Evet" / "Hayır" gibi)
-      -->
-    </div>
-    <div class="tus-kutu" id="ssdk-tus-k" onclick="ssDkYanit('K')">
-      <span class="tus-harf">K</span>
-      <span class="tus-aciklama">Etmem</span>
-    </div>
-  </div>
-
-  <div class="yorum-alani">
-    <label>Yorumunuz (İsteğe bağlı)</label>
-    <textarea id="ssdk-yorum" placeholder="Yorumunuzu buraya yazın..."></textarea>
-  </div>
-
-  <div class="btn-satir">
-    <button class="btn btn-primary" id="ssdk-ileri-btn" onclick="ssDkIleri()" disabled>Sonraki →</button>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     EKRAN 7: KENDİNİ FEDA (SS) - LİKERT BÖLÜMÜ
-============================================================ -->
-<section id="ekran-ss-likert" class="ekran">
-  <div class="bolum-bant">
-    <div class="bolum-no">6b</div>
-    <div>Kendini Feda – Değerlendirme</div>
-  </div>
-
-  <div class="bilgi-kutusu">
-    Aşağıdaki senaryoyu değerlendirin.
-  </div>
-
-  <div class="ilerleme-metin" id="ssl-ilerleme-metin"></div>
-  <div class="ilerleme-cubuğu-kap">
-    <div class="ilerleme-cubuğu-ic" id="ssl-ilerleme-ic" style="width:0%"></div>
-  </div>
-
-  <div class="gorsel-sahne">
-    <img id="ssl-gorsel" src="" alt="SS Likert Görseli" />
-  </div>
-
-  <div class="likert-grup" style="margin-top:10px;">
-    <div class="soru-metni" id="ssl-soru-metni">
-      Bu senaryoyu ne kadar ahlaki buldunuz?
-      <!--
-        TODO: Soruyu değiştirin (örn. "Bu fedakârlığı ne kadar doğru buldunuz?")
-      -->
-    </div>
-    <div class="likert-secenekler">
-      <span class="uc-label">Hiç ahlaki değil</span>
-      <div class="radio-grup" id="ssl-likert">
-        <!-- 1-6 butonları JS tarafından oluşturulur -->
-      </div>
-      <span class="uc-label">Tamamen ahlaki</span>
-    </div>
-  </div>
-
-  <div class="yorum-alani">
-    <label>Yorumunuz (İsteğe bağlı)</label>
-    <textarea id="ssl-yorum" placeholder="Yorumunuzu buraya yazın..."></textarea>
-  </div>
-
-  <div id="ssl-hata" class="hata">Lütfen bir puan seçin.</div>
-  <div class="btn-satir">
-    <button class="btn btn-primary" onclick="ssLikertIleri()">Sonraki →</button>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     EKRAN 8: GÖNDERİM / BEKLİYOR
-============================================================ -->
+<!-- EKRAN: GÖNDERİM -->
 <section id="ekran-gonderim" class="ekran">
   <h2 style="text-align:center;">Verileriniz gönderiliyor…</h2>
   <div class="spinner"></div>
@@ -637,216 +417,68 @@
 </section>
 
 
-<!-- ============================================================
-     EKRAN 9: TEŞEKKÜRLERİ
-============================================================ -->
+<!-- EKRAN: BİTİŞ -->
 <section id="ekran-bitis" class="ekran">
   <h1>Teşekkürler! 🎉</h1>
   <p>Katılımınız için teşekkür ederiz. Yanıtlarınız başarıyla kaydedildi.</p>
-  <p>Çalışma hakkında sorularınız varsa araştırmacı ile iletişime geçebilirsiniz.</p>
-  <!-- TODO: İletişim bilgisi veya debriefing metni ekleyin -->
+  <!-- TODO: Debriefing metni veya iletişim bilgisi ekleyin -->
 </section>
 
 
-<!-- ============================================================
-     JAVASCRIPT
-============================================================ -->
 <script>
 /* ================================================================
-   YAPILANDIRMA BÖLGESİ - TÜM ÖZELLEŞTIRMELERI BURADAN YAPIN
+   YAPILANDIRMA – TÜM DEĞİŞİKLİKLERİ BURADAN YAPIN
 ================================================================ */
 
-// ---------------------------------------------------------------
-// 1. GOOGLE APPS SCRIPT URL
-//    Apps Script'i deploy edip aldığınız URL'yi buraya yapıştırın.
-//    Format: https://script.google.com/macros/s/XXXX/exec
-// ---------------------------------------------------------------
+// Google Apps Script URL – deploy ettikten sonra buraya yapıştırın
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/BURAYA_URL_GIRIN/exec";
 
 
-// ---------------------------------------------------------------
-// 2. KİMLİK KAYNAŞIM ÖLÇEĞİ SORULARI
-//    Standart maddeler yüklenmiştir. Dilediğiniz gibi düzenleyin.
-//    Her madde: { id: "kimlik_N", metin: "..." }
-//    Ölçek: 1 (Kesinlikle Katılmıyorum) – 6 (Kesinlikle Katılıyorum)
-// ---------------------------------------------------------------
+// KİMLİK KAYNAŞIM SORULARI (1-7 Likert)
 const KIMLIK_SORULARI = [
-  { id: "kimlik_1",  metin: "Ben ve grubum aynı şeyiz." },
-  { id: "kimlik_2",  metin: "Grubumla güçlü bir şekilde bütünleşiyorum." },
-  { id: "kimlik_3",  metin: "Grubumun kimliği benim kimliğimle iç içedir." },
-  { id: "kimlik_4",  metin: "Grubum ile ben birbirimizin bir parçasıyız." },
-  { id: "kimlik_5",  metin: "Grubumla kendim arasındaki sınır belirsizdir." },
-  { id: "kimlik_6",  metin: "Grubumun kaderini kendi kaderim olarak hissediyorum." },
-  { id: "kimlik_7",  metin: "Grubum için her şeyi yapabilirim." },
-  // TODO: Ek maddeler ekleyin veya mevcut olanları değiştirin
+  { id: "kimlik_1", metin: "Grubumla bir bütünüm." },
+  { id: "kimlik_2", metin: "Grubumla bütünleşmiş hissediyorum." },
+  { id: "kimlik_3", metin: "Grubumla aramda derin bir duygusal bağım var." },
+  { id: "kimlik_4", metin: "Grubum ben demektir." },
+  { id: "kimlik_5", metin: "Grubum için diğer grup üyelerinin yapacağından daha fazlasını yaparım." },
+  { id: "kimlik_6", metin: "Grubum sayesinde güçlüyüm." },
+  { id: "kimlik_7", metin: "Bağlı bulunduğum grubu güçlü hale getiriyorum." },
 ];
 
 
-// ---------------------------------------------------------------
-// 3. GGES SORULARI
-//    TODO: GGES ölçeğinin Türkçe maddelerini buraya girin.
-//    Her madde: { id: "gges_N", metin: "..." }
-//    Ölçek: 1 (Kesinlikle Katılmıyorum) – 6 (Kesinlikle Katılıyorum)
-// ---------------------------------------------------------------
+// GGES SIFATLARI (Türk + Türk Olmayan için ayrı ayrı, 1-5)
 const GGES_SORULARI = [
-  { id: "gges_1", metin: "[GGES Madde 1 - Lütfen düzenleyin]" },
-  { id: "gges_2", metin: "[GGES Madde 2 - Lütfen düzenleyin]" },
-  { id: "gges_3", metin: "[GGES Madde 3 - Lütfen düzenleyin]" },
-  { id: "gges_4", metin: "[GGES Madde 4 - Lütfen düzenleyin]" },
-  { id: "gges_5", metin: "[GGES Madde 5 - Lütfen düzenleyin]" },
-  // TODO: Tüm GGES maddelerini buraya ekleyin
-];
-
-
-// ---------------------------------------------------------------
-// 4. AKTÖR SENARYOLARI (6 senaryo, randomize gösterilecek)
-//    gorselOncesi: trenin/durumun önceki hali
-//    gorselSonrasi: kol çekildikten/çekilmedikten sonraki hal
-//    aciklama: senaryonun kısa yazılı açıklaması (boş bırakılabilir)
-//    NOT: Görselleri GitHub reponuzdaki images/aktor/ klasörüne koyun
-// ---------------------------------------------------------------
-const AKTOR_SENARYOLARI = [
-  {
-    id: "A1",
-    gorselOncesi:  "images/aktor/A1_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A1_sonrasi.jpg",
-    aciklama: "[Senaryo A1 açıklaması buraya]"
-  },
-  {
-    id: "A2",
-    gorselOncesi:  "images/aktor/A2_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A2_sonrasi.jpg",
-    aciklama: "[Senaryo A2 açıklaması buraya]"
-  },
-  {
-    id: "A3",
-    gorselOncesi:  "images/aktor/A3_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A3_sonrasi.jpg",
-    aciklama: "[Senaryo A3 açıklaması buraya]"
-  },
-  {
-    id: "A4",
-    gorselOncesi:  "images/aktor/A4_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A4_sonrasi.jpg",
-    aciklama: "[Senaryo A4 açıklaması buraya]"
-  },
-  {
-    id: "A5",
-    gorselOncesi:  "images/aktor/A5_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A5_sonrasi.jpg",
-    aciklama: "[Senaryo A5 açıklaması buraya]"
-  },
-  {
-    id: "A6",
-    gorselOncesi:  "images/aktor/A6_oncesi.jpg",
-    gorselSonrasi: "images/aktor/A6_sonrasi.jpg",
-    aciklama: "[Senaryo A6 açıklaması buraya]"
-  }
-];
-
-
-// ---------------------------------------------------------------
-// 5. BYSTANDER GÖRSELLERİ (12 görsel, sıralı)
-//    gorsel: görsel dosya yolu (veya video URL'si)
-//    NOT: images/bystander/ klasörüne koyun
-// ---------------------------------------------------------------
-const BYSTANDER_GORSELLER = [
-  { id: "B1",  gorsel: "images/bystander/B1.jpg" },
-  { id: "B2",  gorsel: "images/bystander/B2.jpg" },
-  { id: "B3",  gorsel: "images/bystander/B3.jpg" },
-  { id: "B4",  gorsel: "images/bystander/B4.jpg" },
-  { id: "B5",  gorsel: "images/bystander/B5.jpg" },
-  { id: "B6",  gorsel: "images/bystander/B6.jpg" },
-  { id: "B7",  gorsel: "images/bystander/B7.jpg" },
-  { id: "B8",  gorsel: "images/bystander/B8.jpg" },
-  { id: "B9",  gorsel: "images/bystander/B9.jpg" },
-  { id: "B10", gorsel: "images/bystander/B10.jpg" },
-  { id: "B11", gorsel: "images/bystander/B11.jpg" },
-  { id: "B12", gorsel: "images/bystander/B12.jpg" },
-];
-
-
-// ---------------------------------------------------------------
-// 6a. KENDİNİ FEDA – D/K BÖLÜMÜ
-//     TODO: Hangi görsellerin D/K ile yanıtlanacağını buraya girin
-//     gorselOncesi ve gorselSonrasi çifti kullanılıyor.
-// ---------------------------------------------------------------
-const SS_DK = [
-  {
-    id: "SS_DK_1",
-    gorselOncesi:  "images/ss/SS1_oncesi.jpg",
-    gorselSonrasi: "images/ss/SS1_sonrasi.jpg",
-    aciklama: "[SS D/K Senaryo 1 açıklaması]"
-  },
-  {
-    id: "SS_DK_2",
-    gorselOncesi:  "images/ss/SS2_oncesi.jpg",
-    gorselSonrasi: "images/ss/SS2_sonrasi.jpg",
-    aciklama: "[SS D/K Senaryo 2 açıklaması]"
-  },
-  // TODO: Kaç tane D/K görseli olacaksa buraya ekleyin
-];
-
-
-// ---------------------------------------------------------------
-// 6b. KENDİNİ FEDA – LİKERT BÖLÜMÜ
-//     TODO: 1-6 Likert ile değerlendirilecek görseller
-// ---------------------------------------------------------------
-const SS_LIKERT = [
-  {
-    id: "SS_L_1",
-    gorsel: "images/ss/SSL1.jpg",
-    soru: "Bu senaryoyu ne kadar ahlaki buldunuz?"
-    // TODO: Soruyu değiştirebilirsiniz
-  },
-  {
-    id: "SS_L_2",
-    gorsel: "images/ss/SSL2.jpg",
-    soru: "Bu senaryoyu ne kadar ahlaki buldunuz?"
-  },
-  // TODO: Kalan görselleri ekleyin
+  { id: "gges_1", metin: "İyi" },
+  { id: "gges_2", metin: "Nazik" },
+  { id: "gges_3", metin: "Dürüst" },
+  { id: "gges_4", metin: "Güvenilir" },
+  { id: "gges_5", metin: "Aksi" },
+  { id: "gges_6", metin: "Kaba" },
+  { id: "gges_7", metin: "Güvenilmez" },
+  { id: "gges_8", metin: "Kötü" },
 ];
 
 
 /* ================================================================
-   UYGULAMA DURUM DEĞİŞKENLERİ
+   DURUM DEĞİŞKENLERİ
 ================================================================ */
-let veri = {};           // Tüm deney verisi burada birikir
-let aktorSira = [];      // Randomize Aktör sırası
-let aktorIndex = 0;
-let aktorMevcutYanit = null;
-let bystanderIndex = 0;
-let ssDkIndex = 0;
-let ssDkMevcutYanit = null;
-let ssLikertIndex = 0;
+let veri = {};
 
 
 /* ================================================================
    YARDIMCI FONKSİYONLAR
 ================================================================ */
 
-/** Ekranları geçiş */
 function ekranGec(ekranId) {
   document.querySelectorAll('.ekran').forEach(e => e.classList.remove('aktif'));
   document.getElementById(ekranId).classList.add('aktif');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/** Diziyi rastgele karıştır (Fisher-Yates) */
-function karistir(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-/** Likert radio butonlarını (1-6) üret */
-function likertRadioUret(containerId, isim) {
+function likertRadioUret(containerId, isim, max = 6) {
   const el = document.getElementById(containerId);
   el.innerHTML = '';
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= max; i++) {
     const inputId = `${isim}_${i}`;
     el.innerHTML += `
       <input type="radio" name="${isim}" id="${inputId}" value="${i}" />
@@ -855,19 +487,12 @@ function likertRadioUret(containerId, isim) {
   }
 }
 
-/** Seçili Likert değerini oku */
 function likertDegerOku(isim) {
   const secili = document.querySelector(`input[name="${isim}"]:checked`);
   return secili ? parseInt(secili.value) : null;
 }
 
-/** Likert seçimini sıfırla */
-function likertSifirla(containerId, isim) {
-  likertRadioUret(containerId, isim);
-}
-
-/** Ölçek sorularını HTML olarak üret */
-function olcekUret(containerId, sorular, olcekIsmi) {
+function olcekUret(containerId, sorular, isim, max = 6) {
   const el = document.getElementById(containerId);
   el.innerHTML = '';
   sorular.forEach(soru => {
@@ -881,11 +506,10 @@ function olcekUret(containerId, sorular, olcekIsmi) {
         </div>
       </div>
     `;
-    likertRadioUret(`rg_${soru.id}`, soru.id);
+    likertRadioUret(`rg_${soru.id}`, soru.id, max);
   });
 }
 
-/** Ölçekteki tüm yanıtları objeye ekle, eksik varsa false döndür */
 function olcekVeriTopla(sorular) {
   const sonuc = {};
   for (const soru of sorular) {
@@ -896,49 +520,105 @@ function olcekVeriTopla(sorular) {
   return sonuc;
 }
 
+// GGES: yazılı etiketli 1-5 butonları
+function ggesGrupUret(containerId, sorular, prefix) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  const etiketler = [
+    { deger: 1, metin: "Hiç tanımlamıyor" },
+    { deger: 2, metin: "Tanımlamıyor" },
+    { deger: 3, metin: "Kararsızım" },
+    { deger: 4, metin: "Tanımlıyor" },
+    { deger: 5, metin: "Tamamen tanımlıyor" },
+  ];
+  sorular.forEach(soru => {
+    let radios = '';
+    etiketler.forEach(etiket => {
+      const inputId = `${prefix}_${soru.id}_${etiket.deger}`;
+      radios += `
+        <label class="gges-radio-label" for="${inputId}">
+          <input type="radio" name="${prefix}_${soru.id}" id="${inputId}" value="${etiket.deger}" />
+          <span>${etiket.metin}</span>
+        </label>
+      `;
+    });
+    el.innerHTML += `
+      <div class="gges-madde">
+        <div class="gges-sifat">${soru.metin}</div>
+        <div class="gges-secenekler">${radios}</div>
+      </div>
+    `;
+  });
+}
 
-/* ================================================================
-   SAYFA YÜKLENİNCE BAŞLAT
-================================================================ */
-window.addEventListener('load', () => {
-  // Ölçek sorularını render et
-  olcekUret('kimlik-sorular', KIMLIK_SORULARI, 'kimlik');
-  olcekUret('gges-sorular', GGES_SORULARI, 'gges');
-
-  // Bystander Likert alanını hazırla
-  likertRadioUret('bys-likert', 'bys_puan');
-
-  // SS Likert alanını hazırla
-  likertRadioUret('ssl-likert', 'ssl_puan');
-
-  // D/K klavye dinleyicisi
-  document.addEventListener('keydown', klavyeDinle);
-});
-
-
-/* ================================================================
-   DEMOGRAFİK DOĞRULAMA
-================================================================ */
-function demografikDogrula() {
-  const yas      = document.getElementById('dem-yas').value.trim();
-  const cinsiyet = document.getElementById('dem-cinsiyet').value;
-  const egitim   = document.getElementById('dem-egitim').value;
-
-  if (!yas || !cinsiyet || !egitim) {
-    document.getElementById('dem-hata').style.display = 'block';
-    return;
+function ggesGrupVeriTopla(sorular, prefix) {
+  const sonuc = {};
+  for (const soru of sorular) {
+    const secili = document.querySelector(`input[name="${prefix}_${soru.id}"]:checked`);
+    if (!secili) return null;
+    sonuc[`${prefix}_${soru.id}`] = parseInt(secili.value);
   }
-  document.getElementById('dem-hata').style.display = 'none';
-  veri.yas      = yas;
-  veri.cinsiyet = cinsiyet;
-  veri.egitim   = egitim;
-  // TODO: Ek alanlara veri.xxx = ... şeklinde ekleyin
-  ekranGec('ekran-kimlik');
+  return sonuc;
 }
 
 
 /* ================================================================
-   KİMLİK KAYNAŞIM DOĞRULAMA
+   BAŞLATMA
+================================================================ */
+window.addEventListener('load', () => {
+  // Kimlik Kaynaşım (1-7)
+  olcekUret('kimlik-sorular', KIMLIK_SORULARI, 'kimlik', 7);
+
+  // GGES Türk ve Türk Olmayan sayfaları
+  ggesGrupUret('gges-turk-sorular', GGES_SORULARI, 'gges_turk');
+  ggesGrupUret('gges-to-sorular',   GGES_SORULARI, 'gges_to');
+
+  // Siyasi konum 1-7
+  const rg = document.getElementById('dem-siyasi-konum-rg');
+  rg.innerHTML = '';
+  for (let i = 1; i <= 7; i++) {
+    rg.innerHTML += `
+      <input type="radio" name="dem-siyasi-konum" id="siyasi_${i}" value="${i}" />
+      <label class="radio-label" for="siyasi_${i}">${i}</label>
+    `;
+  }
+});
+
+
+/* ================================================================
+   DEMOGRAFİK
+================================================================ */
+function demografikDogrula() {
+  const takmaIsim      = document.getElementById('dem-takma-isim').value.trim();
+  const yas            = document.getElementById('dem-yas').value.trim();
+  const cinsiyet       = document.getElementById('dem-cinsiyet').value;
+  const gelir          = document.getElementById('dem-gelir').value;
+  const din            = document.getElementById('dem-din').value;
+  const dindarlik      = document.getElementById('dem-dindarlik').value;
+  const siyasiKonum    = likertDegerOku('dem-siyasi-konum');
+  const siyasiBaglilik = document.getElementById('dem-siyasi-baglilik').value;
+
+  if (!takmaIsim || !yas || !cinsiyet || !gelir || !din || !dindarlik || !siyasiKonum || !siyasiBaglilik) {
+    document.getElementById('dem-hata').style.display = 'block';
+    return;
+  }
+  document.getElementById('dem-hata').style.display = 'none';
+
+  veri.takma_isim      = takmaIsim;
+  veri.yas             = yas;
+  veri.cinsiyet        = cinsiyet;
+  veri.gelir           = gelir;
+  veri.din             = din;
+  veri.dindarlik       = dindarlik;
+  veri.siyasi_konum    = siyasiKonum;
+  veri.siyasi_baglilik = siyasiBaglilik;
+
+  ekranGec('ekran-kimlik-aciklama');
+}
+
+
+/* ================================================================
+   KİMLİK KAYNAŞIM
 ================================================================ */
 function kimlikDogrula() {
   const sonuc = olcekVeriTopla(KIMLIK_SORULARI);
@@ -948,349 +628,98 @@ function kimlikDogrula() {
   }
   document.getElementById('kimlik-hata').style.display = 'none';
   veri.kimlik = sonuc;
-  ekranGec('ekran-gges');
+  ekranGec('ekran-gges-aciklama');
 }
 
 
 /* ================================================================
-   GGES DOĞRULAMA
+   GGES – TÜRK
 ================================================================ */
-function ggesDogrula() {
-  const sonuc = olcekVeriTopla(GGES_SORULARI);
+function ggesTogrula() {
+  const sonuc = ggesGrupVeriTopla(GGES_SORULARI, 'gges_turk');
   if (!sonuc) {
-    document.getElementById('gges-hata').style.display = 'block';
+    document.getElementById('gges-turk-hata').style.display = 'block';
     return;
   }
-  document.getElementById('gges-hata').style.display = 'none';
-  veri.gges = sonuc;
-
-  // Aktör senaryolarını başlat
-  aktorBaslat();
-  ekranGec('ekran-aktor');
+  document.getElementById('gges-turk-hata').style.display = 'none';
+  veri.gges_turk = sonuc;
+  ekranGec('ekran-gges-to');
 }
 
 
 /* ================================================================
-   AKTÖR SENARYOLARI
+   GGES – TÜRK OLMAYAN
 ================================================================ */
-function aktorBaslat() {
-  aktorSira   = karistir(AKTOR_SENARYOLARI); // Randomize sıra
-  aktorIndex  = 0;
-  veri.aktor  = [];
-  aktorGorselGoster();
-}
-
-function aktorGorselGoster() {
-  const toplam  = aktorSira.length;
-  const senaryo = aktorSira[aktorIndex];
-
-  document.getElementById('aktor-ilerleme-metin').textContent =
-    `Senaryo ${aktorIndex + 1} / ${toplam}`;
-  document.getElementById('aktor-ilerleme-ic').style.width =
-    `${((aktorIndex) / toplam) * 100}%`;
-
-  document.getElementById('aktor-gorsel-oncesi').src  = senaryo.gorselOncesi;
-  document.getElementById('aktor-gorsel-sonrasi').src = senaryo.gorselSonrasi;
-  document.getElementById('aktor-aciklama').textContent = senaryo.aciklama || '';
-  document.getElementById('aktor-yorum').value = '';
-
-  // Tuş kutularını sıfırla
-  document.getElementById('tus-d').className = 'tus-kutu';
-  document.getElementById('tus-k').className = 'tus-kutu';
-  document.getElementById('aktor-ileri-btn').disabled = true;
-  aktorMevcutYanit = null;
-}
-
-function aktorYanit(tus) {
-  aktorMevcutYanit = tus;
-  document.getElementById('tus-d').className = 'tus-kutu' + (tus === 'D' ? ' secildi-d' : '');
-  document.getElementById('tus-k').className = 'tus-kutu' + (tus === 'K' ? ' secildi-k' : '');
-  document.getElementById('aktor-ileri-btn').disabled = false;
-}
-
-function aktorIleri() {
-  if (!aktorMevcutYanit) return;
-  const senaryo = aktorSira[aktorIndex];
-  veri.aktor.push({
-    id:     senaryo.id,
-    yanit:  aktorMevcutYanit,                           // "D" veya "K"
-    yorum:  document.getElementById('aktor-yorum').value.trim()
-  });
-  aktorIndex++;
-
-  if (aktorIndex < aktorSira.length) {
-    aktorGorselGoster();
-  } else {
-    // Aktör bitti → Bystander'a geç
-    bystanderBaslat();
-    ekranGec('ekran-bystander');
-  }
-}
-
-
-/* ================================================================
-   BYSTANDER
-================================================================ */
-function bystanderBaslat() {
-  bystanderIndex  = 0;
-  veri.bystander  = [];
-  bystanderGorselGoster();
-}
-
-function bystanderGorselGoster() {
-  const toplam = BYSTANDER_GORSELLER.length;
-  const item   = BYSTANDER_GORSELLER[bystanderIndex];
-
-  document.getElementById('bys-ilerleme-metin').textContent =
-    `Görsel ${bystanderIndex + 1} / ${toplam}`;
-  document.getElementById('bys-ilerleme-ic').style.width =
-    `${(bystanderIndex / toplam) * 100}%`;
-
-  document.getElementById('bys-gorsel').src = item.gorsel;
-  document.getElementById('bys-yorum').value = '';
-  likertSifirla('bys-likert', 'bys_puan');
-  document.getElementById('bys-hata').style.display = 'none';
-}
-
-function bystanderIleri() {
-  const puan = likertDegerOku('bys_puan');
-  if (!puan) {
-    document.getElementById('bys-hata').style.display = 'block';
+function ggesToOgrula() {
+  const sonuc = ggesGrupVeriTopla(GGES_SORULARI, 'gges_to');
+  if (!sonuc) {
+    document.getElementById('gges-to-hata').style.display = 'block';
     return;
   }
-  const item = BYSTANDER_GORSELLER[bystanderIndex];
-  veri.bystander.push({
-    id:    item.id,
-    puan:  puan,
-    yorum: document.getElementById('bys-yorum').value.trim()
-  });
-  document.getElementById('bys-hata').style.display = 'none';
-  bystanderIndex++;
-
-  if (bystanderIndex < BYSTANDER_GORSELLER.length) {
-    bystanderGorselGoster();
-  } else {
-    // Bystander bitti → SS D/K'ya geç
-    ssDkBaslat();
-    ekranGec('ekran-ss-dk');
-  }
+  document.getElementById('gges-to-hata').style.display = 'none';
+  veri.gges_turkolmayan = sonuc;
+  veriGonder();
 }
 
 
 /* ================================================================
-   KENDİNİ FEDA – D/K
-================================================================ */
-function ssDkBaslat() {
-  ssDkIndex = 0;
-  veri.ss_dk = [];
-  if (SS_DK.length === 0) {
-    // D/K görsel yoksa direkt Likert'e geç
-    ssLikertBaslat();
-    ekranGec('ekran-ss-likert');
-    return;
-  }
-  ssDkGorselGoster();
-}
-
-function ssDkGorselGoster() {
-  const toplam  = SS_DK.length;
-  const senaryo = SS_DK[ssDkIndex];
-
-  document.getElementById('ssdk-ilerleme-metin').textContent =
-    `Senaryo ${ssDkIndex + 1} / ${toplam}`;
-  document.getElementById('ssdk-ilerleme-ic').style.width =
-    `${(ssDkIndex / toplam) * 100}%`;
-
-  document.getElementById('ssdk-gorsel-oncesi').src  = senaryo.gorselOncesi;
-  document.getElementById('ssdk-gorsel-sonrasi').src = senaryo.gorselSonrasi;
-  document.getElementById('ssdk-aciklama').textContent = senaryo.aciklama || '';
-  document.getElementById('ssdk-yorum').value = '';
-
-  document.getElementById('ssdk-tus-d').className = 'tus-kutu';
-  document.getElementById('ssdk-tus-k').className = 'tus-kutu';
-  document.getElementById('ssdk-ileri-btn').disabled = true;
-  ssDkMevcutYanit = null;
-}
-
-function ssDkYanit(tus) {
-  ssDkMevcutYanit = tus;
-  document.getElementById('ssdk-tus-d').className = 'tus-kutu' + (tus === 'D' ? ' secildi-d' : '');
-  document.getElementById('ssdk-tus-k').className = 'tus-kutu' + (tus === 'K' ? ' secildi-k' : '');
-  document.getElementById('ssdk-ileri-btn').disabled = false;
-}
-
-function ssDkIleri() {
-  if (!ssDkMevcutYanit) return;
-  const senaryo = SS_DK[ssDkIndex];
-  veri.ss_dk.push({
-    id:    senaryo.id,
-    yanit: ssDkMevcutYanit,
-    yorum: document.getElementById('ssdk-yorum').value.trim()
-  });
-  ssDkIndex++;
-
-  if (ssDkIndex < SS_DK.length) {
-    ssDkGorselGoster();
-  } else {
-    ssLikertBaslat();
-    ekranGec('ekran-ss-likert');
-  }
-}
-
-
-/* ================================================================
-   KENDİNİ FEDA – LİKERT
-================================================================ */
-function ssLikertBaslat() {
-  ssLikertIndex = 0;
-  veri.ss_likert = [];
-  if (SS_LIKERT.length === 0) {
-    // Likert görsel yoksa direkt bitişe geç
-    veriGonder();
-    return;
-  }
-  ssLikertGorselGoster();
-}
-
-function ssLikertGorselGoster() {
-  const toplam = SS_LIKERT.length;
-  const item   = SS_LIKERT[ssLikertIndex];
-
-  document.getElementById('ssl-ilerleme-metin').textContent =
-    `Görsel ${ssLikertIndex + 1} / ${toplam}`;
-  document.getElementById('ssl-ilerleme-ic').style.width =
-    `${(ssLikertIndex / toplam) * 100}%`;
-
-  document.getElementById('ssl-gorsel').src = item.gorsel;
-  document.getElementById('ssl-soru-metni').textContent = item.soru;
-  document.getElementById('ssl-yorum').value = '';
-  likertSifirla('ssl-likert', 'ssl_puan');
-  document.getElementById('ssl-hata').style.display = 'none';
-}
-
-function ssLikertIleri() {
-  const puan = likertDegerOku('ssl_puan');
-  if (!puan) {
-    document.getElementById('ssl-hata').style.display = 'block';
-    return;
-  }
-  const item = SS_LIKERT[ssLikertIndex];
-  veri.ss_likert.push({
-    id:    item.id,
-    puan:  puan,
-    yorum: document.getElementById('ssl-yorum').value.trim()
-  });
-  document.getElementById('ssl-hata').style.display = 'none';
-  ssLikertIndex++;
-
-  if (ssLikertIndex < SS_LIKERT.length) {
-    ssLikertGorselGoster();
-  } else {
-    veriGonder();
-  }
-}
-
-
-/* ================================================================
-   KLAVYE DİNLEYİCİ (D / K)
-   Hangi ekranda olduğuna göre doğru fonksiyonu çağırır.
-================================================================ */
-function klavyeDinle(e) {
-  const tus = e.key.toUpperCase();
-  if (tus !== 'D' && tus !== 'K') return;
-
-  // Aktif ekrana göre yönlendir
-  if (document.getElementById('ekran-aktor').classList.contains('aktif')) {
-    aktorYanit(tus);
-  } else if (document.getElementById('ekran-ss-dk').classList.contains('aktif')) {
-    ssDkYanit(tus);
-  }
-}
-
-
-/* ================================================================
-   VERİ GÖNDERME → GOOGLE APPS SCRIPT
+   VERİ GÖNDER → GOOGLE APPS SCRIPT
 ================================================================ */
 function veriGonder() {
   ekranGec('ekran-gonderim');
-
-  veri.zaman = new Date().toISOString();
+  veri.zaman    = new Date().toISOString();
   veri.tarayici = navigator.userAgent;
 
-  // Veriyi JSON olarak gönder
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
-    mode:   'no-cors',  // Apps Script CORS kısıtı nedeniyle no-cors
+    mode:   'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(veri)
   })
-  .then(() => {
-    ekranGec('ekran-bitis');
-  })
-  .catch(err => {
-    console.error('Gönderim hatası:', err);
-    // Hata olsa bile bitişe yönlendir (veri Apps Script tarafında olabilir)
-    ekranGec('ekran-bitis');
-  });
+  .then(() => ekranGec('ekran-bitis'))
+  .catch(() => ekranGec('ekran-bitis'));
 }
 
 
 /*
-  ================================================================
-  GOOGLE APPS SCRIPT KODU (Apps Script editöründe kullanın)
-  ================================================================
+================================================================
+GOOGLE APPS SCRIPT KODU – script.google.com'a yapıştırın
+================================================================
 
-  Aşağıdaki kodu Google Drive → Yeni → Google Apps Script içine
-  yapıştırın ve Web uygulaması olarak deploy edin (Herkes erişebilir).
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const d = JSON.parse(e.postData.contents);
 
-  ----------------------------------------------------------------
-  function doPost(e) {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    const veri  = JSON.parse(e.postData.contents);
-
-    // Sütun başlıkları (ilk satırda yoksa oluştur)
-    if (sheet.getLastRow() === 0) {
-      const basliklar = ["zaman", "tarayici",
-        "yas", "cinsiyet", "egitim",
-        // Kimlik Kaynaşım
-        "kimlik_1","kimlik_2","kimlik_3","kimlik_4","kimlik_5","kimlik_6","kimlik_7",
-        // GGES
-        "gges_1","gges_2","gges_3","gges_4","gges_5",
-        // Aktör (JSON olarak)
-        "aktor_yanıtlar",
-        // Bystander (JSON olarak)
-        "bystander_yanıtlar",
-        // SS D/K
-        "ss_dk_yanıtlar",
-        // SS Likert
-        "ss_likert_yanıtlar"
-      ];
-      sheet.appendRow(basliklar);
-    }
-
-    // Kimlik ve GGES değerlerini düz çek
-    const kimlik = veri.kimlik || {};
-    const gges   = veri.gges   || {};
-
-    const satir = [
-      veri.zaman, veri.tarayici,
-      veri.yas, veri.cinsiyet, veri.egitim,
-      kimlik.kimlik_1, kimlik.kimlik_2, kimlik.kimlik_3,
-      kimlik.kimlik_4, kimlik.kimlik_5, kimlik.kimlik_6, kimlik.kimlik_7,
-      gges.gges_1, gges.gges_2, gges.gges_3, gges.gges_4, gges.gges_5,
-      JSON.stringify(veri.aktor      || []),
-      JSON.stringify(veri.bystander  || []),
-      JSON.stringify(veri.ss_dk      || []),
-      JSON.stringify(veri.ss_likert  || [])
-    ];
-
-    sheet.appendRow(satir);
-
-    return ContentService
-      .createTextOutput(JSON.stringify({ durum: "OK" }))
-      .setMimeType(ContentService.MimeType.JSON);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow([
+      "zaman","tarayici",
+      "takma_isim","yas","cinsiyet","gelir","din","dindarlik","siyasi_konum","siyasi_baglilik",
+      "kimlik_1","kimlik_2","kimlik_3","kimlik_4","kimlik_5","kimlik_6","kimlik_7",
+      "gges_turk_1","gges_turk_2","gges_turk_3","gges_turk_4","gges_turk_5","gges_turk_6","gges_turk_7","gges_turk_8",
+      "gges_to_1","gges_to_2","gges_to_3","gges_to_4","gges_to_5","gges_to_6","gges_to_7","gges_to_8"
+    ]);
   }
-  ----------------------------------------------------------------
+
+  const k = d.kimlik || {};
+  const gt = d.gges_turk || {};
+  const gto = d.gges_turkolmayan || {};
+
+  sheet.appendRow([
+    d.zaman, d.tarayici,
+    d.takma_isim, d.yas, d.cinsiyet, d.gelir, d.din, d.dindarlik, d.siyasi_konum, d.siyasi_baglilik,
+    k.kimlik_1, k.kimlik_2, k.kimlik_3, k.kimlik_4, k.kimlik_5, k.kimlik_6, k.kimlik_7,
+    gt.gges_turk_gges_1, gt.gges_turk_gges_2, gt.gges_turk_gges_3, gt.gges_turk_gges_4,
+    gt.gges_turk_gges_5, gt.gges_turk_gges_6, gt.gges_turk_gges_7, gt.gges_turk_gges_8,
+    gto.gges_to_gges_1, gto.gges_to_gges_2, gto.gges_to_gges_3, gto.gges_to_gges_4,
+    gto.gges_to_gges_5, gto.gges_to_gges_6, gto.gges_to_gges_7, gto.gges_to_gges_8
+  ]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({durum:"OK"}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+================================================================
 */
 </script>
 </body>
